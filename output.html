@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .keyword {
+        color: red;
+        font-weight: bold;
+      }
+      .operator {
+        color: blue;
+      }
+      .literal {
+        color: green;
+      }
+      .comment {
+        color: grey;
+        font-style: italic;
+      }
+      .identifier {
+        color: black;
+      }
+      .data_struct {
+        background-color: lightgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <pre><span class="comment"># Write a simple python script that uses the following features:</span>
+<span class="comment"># 1. Palabras Reservadas: `def`, `if`, `else`, `return`, `class`, `for`, `while`, `break`, `continue` y operadores lógicos (`and`, `or`, `not`)</span>
+<span class="comment"># 2. Operadores: operadores aritméticos (`+`, `-`, `*`, `/`, `**`, `//`, `%`), operadores de comparación (`==`, `!=`, `<`, `>`, `<=`, `>=`), y operadores	 de asignación (`=`, `+=`, `-=` etc.).</span>
+<span class="comment"># 3. Literales: literales numéricos (e.g., `123`, `3.14`), literales de cadena (`"Hola"`, `'Mundo'`), literales booleanos (`True`, `False`) y el literal `None`.</span>
+<span class="comment"># 4. Comentarios: `#`</span>
+<span class="comment"># 5. Identificadores: un identificador empieza con una letra (A-Z/a-z) o un guión bajo (`_`) seguido de más letras, guiones bajos o dígitos (0-9).</span>
+<span class="comment"># 6. Estructuras de Datos: listas (`[1, 2, 3]`), tuplas (`(1, 2, 3)`), diccionarios (`{'clave': 'valor'}`) y conjuntos (`{1, 2, 3}`)</span>
+
+<span class="comment"># This will help me test my syntax highlighting</span>
+
+<span class="keyword">def</span> <span class="identifier">fib</span>(<span class="identifier">n</span>): <span class="comment"># This is a comment</span>
+    <span class="identifier">a</span>, <span class="identifier">b</span> <span class="operator">=</span> <span class="literal">0</span>, <span class="literal">1</span>
+    <span class="keyword">while</span> <span class="identifier">a</span> <span class="operator"><</span> <span class="identifier">n</span>:
+        <span class="identifier">print</span>(<span class="identifier">a</span>, <span class="identifier">end</span><span class="operator">=</span><span class="literal">' '</span>)
+        <span class="identifier">a</span>, <span class="identifier">b</span> <span class="operator">=</span> <span class="identifier">b</span>, <span class="identifier">a</span><span class="operator">+</span><span class="identifier">b</span>
+    <span class="identifier">print</span>()
+
+<span class="identifier">fib</span>(<span class="literal">1000</span>) <span class="comment"># This is another comment</span>
+
+<span class="keyword">def</span> <span class="identifier">recursive_fib</span>(<span class="identifier">n</span>):
+    <span class="keyword">if</span> <span class="identifier">n</span> <span class="operator"><=</span> <span class="literal">1</span>:
+        <span class="keyword">return</span> <span class="identifier">n</span>
+    <span class="keyword">else</span>:
+        <span class="keyword">return</span> <span class="identifier">recursive_fib</span>(<span class="identifier">n</span><span class="operator">-</span><span class="literal">1</span>) <span class="operator">+</span> <span class="identifier">recursive_fib</span>(<span class="identifier">n</span><span class="operator">-</span><span class="literal">2</span>)
+
+<span class="identifier">print</span>(<span class="identifier">recursive_fib</span>(<span class="literal">10</span>))
+
+<span class="keyword">def</span> <span class="identifier">factorial</span>(<span class="identifier">n</span>):
+    <span class="keyword">if</span> <span class="identifier">n</span> <span class="operator">==</span> <span class="literal">0</span>:
+        <span class="keyword">return</span> <span class="literal">1</span>
+    <span class="keyword">else</span>:
+        <span class="keyword">return</span> <span class="identifier">n</span> <span class="operator">*</span> <span class="identifier">factorial</span>(<span class="identifier">n</span><span class="operator">-</span><span class="literal">1</span>)
+
+<span class="identifier">print</span>(<span class="identifier">factorial</span>(<span class="literal">5</span>))
+
+<span class="keyword">def</span> <span class="identifier">iter_factorial</span>(<span class="identifier">n</span>):
+    <span class="identifier">result</span> <span class="operator">=</span> <span class="literal">1</span>
+    <span class="keyword">for</span> <span class="identifier">i</span> <span class="identifier">in</span> <span class="identifier">range</span>(<span class="literal">1</span>, <span class="identifier">n</span><span class="operator">+</span><span class="literal">1</span>):
+        <span class="identifier">result</span> <span class="operator">*</span><span class="operator">=</span> <span class="identifier">i</span>
+    <span class="keyword">return</span> <span class="identifier">result</span>
+
+<span class="keyword">def</span> <span class="identifier">binary_search</span>(<span class="identifier">arr</span>, <span class="identifier">x</span>):
+    <span class="identifier">low</span>, <span class="identifier">high</span> <span class="operator">=</span> <span class="literal">0</span>, <span class="identifier">len</span>(<span class="identifier">arr</span>) <span class="operator">-</span> <span class="literal">1</span>
+    <span class="keyword">while</span> <span class="identifier">low</span> <span class="operator"><=</span> <span class="identifier">high</span>:
+        <span class="identifier">mid</span> <span class="operator">=</span> (<span class="identifier">low</span> <span class="operator">+</span> <span class="identifier">high</span>) <span class="operator">//</span> <span class="literal">2</span>
+        <span class="keyword">if</span> <span class="identifier">arr</span>[<span class="identifier">mid</span>] <span class="operator"><</span> <span class="identifier">x</span>:
+            <span class="identifier">low</span> <span class="operator">=</span> <span class="identifier">mid</span> <span class="operator">+</span> <span class="literal">1</span>
+        <span class="keyword">elif</span> <span class="identifier">arr</span>[<span class="identifier">mid</span>] <span class="operator">></span> <span class="identifier">x</span>:
+            <span class="identifier">high</span> <span class="operator">=</span> <span class="identifier">mid</span> <span class="operator">-</span> <span class="literal">1</span>
+        <span class="keyword">else</span>:
+            <span class="keyword">return</span> <span class="identifier">mid</span>
+    <span class="keyword">return</span> <span class="operator">-</span><span class="literal">1</span>
+
+
+<span class="keyword">def</span> <span class="identifier">fizzbuzz</span>(<span class="identifier">n</span>):
+    <span class="keyword">for</span> <span class="identifier">i</span> <span class="identifier">in</span> <span class="identifier">range</span>(<span class="literal">1</span>, <span class="identifier">n</span><span class="operator">+</span><span class="literal">1</span>):
+        <span class="keyword">if</span> <span class="identifier">i</span> <span class="operator">%</span> <span class="literal">3</span> <span class="operator">==</span> <span class="literal">0</span> <span class="keyword">and</span> <span class="identifier">i</span> <span class="operator">%</span> <span class="literal">5</span> <span class="operator">==</span> <span class="literal">0</span>:
+            <span class="identifier">print</span>(<span class="literal">'FizzBuzz'</span>)
+        <span class="keyword">elif</span> <span class="identifier">i</span> <span class="operator">%</span> <span class="literal">3</span> <span class="operator">==</span> <span class="literal">0</span>:
+            <span class="identifier">print</span>(<span class="literal">'Fizz'</span>)
+        <span class="keyword">elif</span> <span class="identifier">i</span> <span class="operator">%</span> <span class="literal">5</span> <span class="operator">==</span> <span class="literal">0</span>:
+            <span class="identifier">print</span>(<span class="literal">'Buzz'</span>)
+        <span class="keyword">else</span>:
+            <span class="identifier">print</span>(<span class="identifier">i</span>)
+
+<span class="identifier">unsorted_list</span> <span class="operator">=</span> <span class="data_struct">[64, 34, 25, 12, 22, 11, 90]</span>
+
+<span class="keyword">def</span> <span class="identifier">bogo_sort</span>(<span class="identifier">arr</span>):
+    <span class="keyword">while</span> <span class="keyword">not</span> <span class="identifier">all</span>(<span class="identifier">arr</span>[<span class="identifier">i</span>] <span class="operator"><=</span> <span class="identifier">arr</span>[<span class="identifier">i</span><span class="operator">+</span><span class="literal">1</span>] <span class="keyword">for</span> <span class="identifier">i</span> <span class="identifier">in</span> <span class="identifier">range</span>(<span class="identifier">len</span>(<span class="identifier">arr</span>)<span class="operator">-</span><span class="literal">1</span>)):
+        <span class="identifier">random</span>.<span class="identifier">shuffle</span>(<span class="identifier">arr</span>)
+    <span class="keyword">return</span> <span class="identifier">arr</span>
+
+<span class="identifier">tuple</span> <span class="operator">=</span> <span class="data_struct">(1, 2, 3)</span>
+
+<span class="identifier">dix</span> <span class="operator">=</span> <span class="data_struct">{'key': 'value'}</span>
+
+n<span class="identifier">ot_a_tuple</span> <span class="operator">=</span> (<span class="literal">1</span>)
+
+<span class="identifier">true</span> <span class="operator">=</span> <span class="literal">True</span>
+<span class="identifier">false</span> <span class="operator">=</span> <span class="literal">False</span>
+<span class="identifier">none</span> <span class="operator">=</span> <span class="literal">None</span>
+</pre>
+  </body>
+</html>
